@@ -21,6 +21,8 @@ data$date <- as.Date(data$date)
 
 ### What is mean total number of steps taken per day?
 For this part of the assignment, you can ignore the missing values in the dataset.
+We interpret that as leaving the missing values untouched instead of removing them.
+It could mean the opposite, but in our case it makes little difference and can be done by switching the na.rm parameter of the "aggregate" function.
 
 
 ```r
@@ -112,7 +114,7 @@ data1[nalist, 'steps.x'] <- data1$steps.y[nalist]
 # numbers based on the revised data set
 totalst_per_day1 <- aggregate(cbind(steps.x) ~ date, data = data1, FUN = sum, na.rm = TRUE)
 
-hist(totalst_per_day1$steps.x, breaks = 7, main = "total number of steps taken each day", xlab='Number of steps')
+hist(totalst_per_day1$steps.x, breaks = 7, main = "Total Number Of Steps Taken Each Day", xlab='Number of Steps')
 ```
 
 ![plot of chunk unnamed-chunk-10](./PA1_template_files/figure-html/unnamed-chunk-10.png) 
